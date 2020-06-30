@@ -15,6 +15,7 @@ let ScreenHeight = Dimensions.get("window").height / 100;
 let ScreenWidth = Dimensions.get("window").width / 100;
 
 function HomeScreen({ navigation }) {
+
   let colors = ["#F9931F", "#FEB400", "#4CBE42", "#567DF4", "#F45052"];
   function randColor() {
     var color = colors[(Math.random() * colors.length) | 0];
@@ -32,17 +33,13 @@ function HomeScreen({ navigation }) {
             justifyContent: "space-evenly",
           }}
         >
-          <Categoria color={randColor()} navigation={navigation} />
-          <Categoria color={randColor()} navigation={navigation} />
-          <Categoria color={randColor()} navigation={navigation} />
-          <Categoria color={randColor()} navigation={navigation} />
+          <Categoria color={randColor()} nome="Mercado" navigation={navigation} />
+          <Categoria color={randColor()} nome="Farmácia" navigation={navigation} />
         </View>
       </ScrollView>
       <TouchableHighlight
         underlayColor="transparent"
-        onPress={() => {
-          alert("Funcionalidade indisponivel");
-        }}
+        onPress={() => navigation.navigate("AddCategoria")}
       >
         <View style={styles.btnCriar}>
           <Text style={{ color: "#fff", fontSize: 17, fontWeight: "bold" }}>

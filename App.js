@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import HomeScreen from "./src/screens/home";
 import Lista from "./src/screens/lista";
+import AddCategoria from "./src/screens/addCategoria"
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,20 @@ function App() {
           component={Lista}
           options={{
             title: "Lista de Compras",
+            headerStyle: {
+              backgroundColor: "#2196F3",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="AddCategoria"
+          component={AddCategoria}
+          options={{
+            title: "Criar categoria",
             headerStyle: {
               backgroundColor: "#2196F3",
             },

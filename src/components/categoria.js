@@ -24,7 +24,7 @@ function Categoria(props) {
               justifyContent: "center"
             }}
           >
-            <Text style={styles.text}>Mercado</Text>
+            <Text style={styles.text}>{props.nome}</Text>
           </View>
         </TouchableHighlight>
       </View>
