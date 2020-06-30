@@ -8,29 +8,19 @@ import { ScrollView } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 function Lista() {
-  const itens = [
-    { item: "arroz" },
-    { item: "feijao" },
-    { item: "farinha" },
-    { item: "arroz" },
-    { item: "feijao" },
-    { item: "farinha" },
-    { item: "arroz" },
-    { item: "feijao" },
-    { item: "farinha" },
-    { item: "arroz" },
-    { item: "feijao" },
-    { item: "farinha" },
-    { item: "arroz" },
-    { item: "feijao" },
-    { item: "farinha" },
-    { item: "arroz" },
-    { item: "feijao" },
-    { item: "farinha" },
-    { item: "arroz" },
-    { item: "feijao" },
-    { item: "farinha" },
-  ];
+  const [inputItem, setInputItem] = React.useState("");
+
+  const [itens, setItens] = React.useState([]);
+
+  function addItem() {
+    if (inputItem !== "") {
+      var newItens = itens;
+      let newItem = { item: inputItem };
+      newItens.push(newItem);
+      setItens(newItens);
+      setInputItem("");
+    }
+  }
   return (
     <>
       <ScrollView>
@@ -39,21 +29,25 @@ function Lista() {
         >
           <Text style={styles.text}>Mercado</Text>
         </View>
-        {itens.map((item, index) => {
-          return (<Item key={index} texto={`${item.item}`} />)
-        })}
+        {itens.map((item, index) => (
+          <Item key={index} texto={`${item.item}`} />
+        ))}
       </ScrollView>
 
       <View style={styles.viewInput}>
-        <TextInput style={styles.input} placeholder="Digite aqui" />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite aqui"
+          onChangeText={(e) => setInputItem(e)}
+          value={inputItem}
+        />
         <Button
           type="clear"
           icon={<Icon name="plus-square" size={35} color="white" />}
           style={{ marginVertical: 0 }}
+          onPress={addItem}
         />
       </View>
-      {/* <View>
-      </View> */}
     </>
   );
 }
