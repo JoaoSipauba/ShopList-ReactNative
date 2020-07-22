@@ -61,6 +61,7 @@ function AddCategoria({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Digite aqui"
+            placeholderTextColor="white"
             onChangeText={(e) => setInputSection(e)}
             value={inputSection}
           />
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginLeft: 8,
     paddingLeft: 20,
-    color: "#000",
+    color: "white",
     flex: 1,
   },
 });
