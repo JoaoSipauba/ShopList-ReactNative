@@ -2,6 +2,7 @@ import "react-native-gesture-handler";
 import * as React from "react";
 
 import {
+  AsyncStorage,
   StyleSheet,
   View,
   Text,
@@ -15,7 +16,19 @@ let ScreenHeight = Dimensions.get("window").height / 100;
 let ScreenWidth = Dimensions.get("window").width / 100;
 
 function HomeScreen({ navigation }) {
+  const [categorias, setCategorias] = React.useState([]);
 
+  React.useEffect(() => {
+    const loadCategoria = navigation.addListener("focus", () => {
+      function getCategorias() {
+        AsyncStorage.getItem("Categorias").then((data) => {
+          setCategorias(JSON.parse(data));
+        });
+      }
+      getCategorias();
+    });
+    return loadCategoria;
+  }, [navigation]);
   let colors = ["#F9931F", "#FEB400", "#4CBE42", "#567DF4", "#F45052"];
   function randColor() {
     var color = colors[(Math.random() * colors.length) | 0];
@@ -33,8 +46,17 @@ function HomeScreen({ navigation }) {
             justifyContent: "space-evenly",
           }}
         >
-          <Categoria color={randColor()} nome="Mercado" navigation={navigation} />
-          <Categoria color={randColor()} nome="Farmácia" navigation={navigation} />
+          {categorias ? (
+            categorias.map((categoria) => (
+              <Categoria
+                color={randColor()}
+                nome={categoria.categoria}
+                navigation={navigation}
+              />
+            ))
+          ) : (
+            <Text style={styles.null}>Cadastre uma nova categoria</Text>
+          )}
         </View>
       </ScrollView>
       <TouchableHighlight
@@ -65,6 +87,12 @@ const styles = StyleSheet.create({
     height: ScreenHeight * 6,
     width: ScreenWidth * 94,
     borderRadius: 29,
+  },
+  null: {
+    // margin: 0,
+    fontSize: 20,
+    padding: 20,
+    fontWeight: "bold",
   },
 });
 export default HomeScreen;

@@ -1,23 +1,57 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 
-import { StyleSheet, View, TextInput } from "react-native";
+import { AsyncStorage, StyleSheet, View, TextInput } from "react-native";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 function AddCategoria({ navigation }) {
   const [inputSection, setInputSection] = React.useState("");
 
-  const [sections, setSections] = React.useState([]);
+  async function addSection() {
+    if (inputSection === "Excluir") {
+      AsyncStorage.removeItem("Categorias").then(() => {
+        setInputSection("");
+        navigation.navigate("Home");
+      });
+    } else {
+      if (inputSection !== "") {
+        let categorias = [];
+        let data = { categoria: inputSection.trim() };
 
-  function addSection() {
-    if (inputSection !== "") {
-      var newSections = sections;
-      let newSection = { categoria: inputSection };
-      newSections.push(newSection);
-      setSections(newSections);
-      setInputSection("");
-      navigation.navigate("Home")
+        const myArray = await AsyncStorage.getItem("Categorias");
+        if (myArray === null) {
+          categorias.push(data);
+          AsyncStorage.setItem(
+            "Categorias",
+            JSON.stringify(categorias),
+            () => {}
+          )
+            .then(() => {
+              setInputSection("");
+              navigation.navigate("Home");
+            })
+            .catch(() => {
+              alert("Something goes wrong.");
+            });
+        } else {
+          // AsyncStorage.removeItem('Categorias')
+          var newCategorias = JSON.parse(myArray);
+          newCategorias.push(data);
+          AsyncStorage.setItem(
+            "Categorias",
+            JSON.stringify(newCategorias),
+            () => {}
+          )
+            .then(() => {
+              setInputSection("");
+              navigation.navigate("Home");
+            })
+            .catch(() => {
+              alert("Something goes wrong.");
+            });
+        }
+      }
     }
   }
   return (
