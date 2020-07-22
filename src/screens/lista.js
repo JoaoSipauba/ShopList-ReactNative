@@ -1,26 +1,22 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 
-import { StyleSheet, View, Text, TextInput, AsyncStorage } from "react-native";
+import { StyleSheet, View, Text, TextInput } from "react-native";
 import { Button } from "react-native-elements";
 import Item from "../components/item";
 import { ScrollView } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useDispatch, useSelector } from "react-redux";
 
 function Lista() {
+  const dispatch = useDispatch();
+
   const [inputItem, setInputItem] = React.useState("");
   const [itens, setItens] = React.useState([]);
-  const [data, setData] = React.useState();
+  const [data, setData] = React.useState(
+    useSelector((state) => state.categoria)
+  );
 
-  React.useEffect(() => {
-    // let objct = {}
-    loadData();
-  }, []);
-  async function loadData() {
-    await AsyncStorage.getItem("Current").then((objct) => {
-      setData(JSON.parse(objct));
-    });
-  }
   function addItem() {
     if (inputItem !== "") {
       var newItens = itens;
@@ -36,7 +32,11 @@ function Lista() {
         <View
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
-          {data ? <Text style={styles.text}>{data.categoria}</Text> : <Text></Text>}
+          {data ? (
+            <Text style={styles.text}>{data.categoria}</Text>
+          ) : (
+            <Text></Text>
+          )}
         </View>
         {itens.map((item, index) => (
           <Item key={index} texto={`${item.item}`} />

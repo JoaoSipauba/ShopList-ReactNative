@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Categoria from "../components/categoria";
+import { useDispatch } from "react-redux";
 
 let ScreenHeight = Dimensions.get("window").height / 100;
 let ScreenWidth = Dimensions.get("window").width / 100;
