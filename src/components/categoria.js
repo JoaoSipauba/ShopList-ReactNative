@@ -1,6 +1,6 @@
 import "react-native-gesture-handler";
 import * as React from "react";
-import { StyleSheet, View, Text, TouchableHighlight } from "react-native";
+import { AsyncStorage, StyleSheet, View, Text, TouchableHighlight } from "react-native";
 import { Dimensions } from "react-native";
 
 let ScreenHeight = Dimensions.get("window").height / 100;
@@ -12,7 +12,9 @@ function Categoria(props) {
       <View style={styles.container}>
         <TouchableHighlight
           underlayColor="transparent"
-          onPress={() => props.navigation.navigate("Lista")}
+          onPress={() => {
+            AsyncStorage.setItem("Current",JSON.stringify(props.data))
+            props.navigation.navigate("Lista")}}
         >
           <View
             style={{
