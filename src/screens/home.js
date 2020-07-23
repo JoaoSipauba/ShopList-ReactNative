@@ -50,11 +50,12 @@ function HomeScreen({ navigation }) {
           {categorias ? (
             categorias.map((categoria, index) => (
               <Categoria
+                index={index}
                 data={categoria}
                 color={randColor()}
                 nome={categoria.categoria}
                 navigation={navigation}
-                index={index}
+                key={index}
               />
             ))
           ) : (

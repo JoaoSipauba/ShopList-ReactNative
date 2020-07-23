@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, View, Text, TextInput, AsyncStorage } from "react-native";
 import { Button } from "react-native-elements";
 import Item from "../components/item";
 import { ScrollView } from "react-native-gesture-handler";
@@ -12,18 +12,28 @@ function Lista() {
   const dispatch = useDispatch();
 
   const [inputItem, setInputItem] = React.useState("");
-  const [itens, setItens] = React.useState([]);
   const [data, setData] = React.useState(
     useSelector((state) => state.categoria)
   );
+  const [itens, setItens] = React.useState(data.lista);
 
-  function addItem() {
+  async function addItem() {
     if (inputItem !== "") {
       var newItens = itens;
       let newItem = { item: inputItem };
       newItens.push(newItem);
       setItens(newItens);
-      setInputItem("");
+      let categorias = []
+
+      await AsyncStorage.getItem("Categorias").then((array)=> {
+        categorias = JSON.parse(array);
+      })
+
+      categorias[data.index].lista = itens;
+      await AsyncStorage.setItem("Categorias", JSON.stringify(categorias)).then(()=>{
+        setInputItem("");
+      })
+
     }
   }
   return (

@@ -1,7 +1,6 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 import {
-  AsyncStorage,
   StyleSheet,
   View,
   Text,
@@ -15,15 +14,18 @@ let ScreenWidth = Dimensions.get("window").width / 100;
 
 function Categoria(props) {
   const dispatch = useDispatch();
+  function touch(){
+    let data = props.data
+    data.index = props.index
+    dispatch({ type: "ADD_CATEGORIA", data: props.data });
+    props.navigation.navigate("Lista");
+  }
   return (
     <>
       <View style={styles.container}>
         <TouchableHighlight
           underlayColor="transparent"
-          onPress={() => {
-            dispatch({ type: "ADD_CATEGORIA", data: props.data });
-            props.navigation.navigate("Lista");
-          }}
+          onPress={touch}
         >
           <View
             style={{

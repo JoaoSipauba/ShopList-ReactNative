@@ -17,7 +17,7 @@ function AddCategoria({ navigation }) {
     } else {
       if (inputSection !== "") {
         let categorias = [];
-        let data = { categoria: inputSection.trim(), cor:"" };
+        let data = { categoria: inputSection.trim(), cor:"", lista: [] };
 
         const myArray = await AsyncStorage.getItem("Categorias");
         if (myArray === null) {
