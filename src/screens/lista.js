@@ -1,15 +1,15 @@
 import "react-native-gesture-handler";
 import * as React from "react";
+import { useSelector } from "react-redux";
 
 import { StyleSheet, View, Text, TextInput, AsyncStorage } from "react-native";
 import { Button } from "react-native-elements";
 import Item from "../components/item";
 import { ScrollView } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useDispatch, useSelector } from "react-redux";
+
 
 function Lista() {
-  const dispatch = useDispatch();
 
   const [inputItem, setInputItem] = React.useState("");
   const [data, setData] = React.useState(
@@ -20,7 +20,7 @@ function Lista() {
   async function addItem() {
     if (inputItem !== "") {
       var newItens = itens;
-      let newItem = { item: inputItem };
+      let newItem = { item: inputItem, checked: false };
       newItens.push(newItem);
       setItens(newItens);
       let categorias = []
@@ -49,7 +49,7 @@ function Lista() {
           )}
         </View>
         {itens.map((item, index) => (
-          <Item key={index} texto={`${item.item}`} />
+          <Item key={index} index={index} checked={item.checked} texto={`${item.item}`} />
         ))}
       </ScrollView>
 

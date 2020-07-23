@@ -64,6 +64,7 @@ function AddCategoria({ navigation }) {
             placeholderTextColor="white"
             onChangeText={(e) => setInputSection(e)}
             value={inputSection}
+            maxLength={20}
           />
           <Button
             type="clear"
