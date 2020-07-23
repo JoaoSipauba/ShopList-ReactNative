@@ -1,14 +1,26 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 
-import { AsyncStorage, StyleSheet, View, TextInput } from "react-native";
+import {
+  AsyncStorage,
+  StyleSheet,
+  View,
+  TextInput,
+  Text,
+  Dimensions
+} from "react-native";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+let ScreenHeight = Dimensions.get("window").height / 100;
+let ScreenWidth = Dimensions.get("window").width / 100;
 
 function AddCategoria({ navigation }) {
   const [inputSection, setInputSection] = React.useState("");
+  const [background, setBackground] = React.useState("#567DF4");
 
-  async function addSection() {
+  async function addSection(cor) {
     if (inputSection === "Excluir") {
       AsyncStorage.removeItem("Categorias").then(() => {
         setInputSection("");
@@ -17,7 +29,7 @@ function AddCategoria({ navigation }) {
     } else {
       if (inputSection !== "") {
         let categorias = [];
-        let data = { categoria: inputSection.trim(), cor:"", lista: [] };
+        let data = { categoria: inputSection.trim(), cor: background, lista: [] };
 
         const myArray = await AsyncStorage.getItem("Categorias");
         if (myArray === null) {
@@ -35,7 +47,6 @@ function AddCategoria({ navigation }) {
               alert("Something goes wrong.");
             });
         } else {
-          // AsyncStorage.removeItem('Categorias')
           var newCategorias = JSON.parse(myArray);
           newCategorias.push(data);
           AsyncStorage.setItem(
@@ -54,9 +65,39 @@ function AddCategoria({ navigation }) {
       }
     }
   }
+  const cores = [ "#F45052", "#FEB400", "#4CBE42", "#F9931F", "#567DF4"];
+
   return (
     <>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View
+        style={{
+          paddingTop:"30%",
+          flex: 1,
+          justifyContent: "flex-start",
+          alignItems: "center",
+        }}
+      >
+        <Text style={{alignSelf:"flex-start",marginLeft:ScreenWidth*3,fontSize: 27, color: "black", padding: "5%", fontWeight: "bold"}}>Cor:</Text>
+        <View style={{flexDirection:"row", marginTop:0}}>
+          {cores.map((cor, index) => (
+            <TouchableOpacity key={index} activeOpacity={0.8} onPress={()=> setBackground(cor)}>
+              <View
+                style={{
+                  backgroundColor: cor,
+                  height: ScreenHeight*8,
+                  width: ScreenWidth*16,
+                  borderRadius: 4,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: ScreenHeight*4,
+                  marginHorizontal:2
+                }}
+              ></View>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        <Text style={{alignSelf:"flex-start",marginLeft:ScreenWidth*3,fontSize: 27, color: "black", padding: "5%", fontWeight: "bold"}}>Nome da categoria:</Text>
         <View style={styles.viewInput}>
           <TextInput
             style={styles.input}

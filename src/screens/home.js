@@ -29,11 +29,7 @@ function HomeScreen({ navigation }) {
     });
     return loadCategoria;
   }, [navigation]);
-  let colors = ["#F9931F", "#FEB400", "#4CBE42", "#567DF4", "#F45052"];
-  function randColor() {
-    var color = colors[(Math.random() * colors.length) | 0];
-    return color;
-  }
+  
   return (
     <View style={{ flex: 1 }}>
       <Text style={styles.text}>Categorias</Text>
@@ -51,7 +47,7 @@ function HomeScreen({ navigation }) {
               <Categoria
                 index={index}
                 data={categoria}
-                color={randColor()}
+                color={categoria.cor}
                 nome={categoria.categoria}
                 navigation={navigation}
                 key={index}
@@ -90,6 +86,7 @@ const styles = StyleSheet.create({
     height: ScreenHeight * 6,
     width: ScreenWidth * 94,
     borderRadius: 29,
+    marginBottom: ScreenHeight*1
   },
   null: {
     // margin: 0,
