@@ -18,7 +18,9 @@ let ScreenWidth = Dimensions.get("window").width / 100;
 
 function AddCategoria({ navigation }) {
   const [inputSection, setInputSection] = React.useState("");
-  const [background, setBackground] = React.useState("#567DF4");
+  const [background, setBackground] = React.useState("#4CBE42");
+  const [selecionado, setSelecionado] = React.useState(2);
+
 
   async function addSection(cor) {
     if (inputSection === "Excluir") {
@@ -80,7 +82,9 @@ function AddCategoria({ navigation }) {
         <Text style={{alignSelf:"flex-start",marginLeft:ScreenWidth*3,fontSize: 27, color: "black", padding: "5%", fontWeight: "bold"}}>Cor:</Text>
         <View style={{flexDirection:"row", marginTop:0}}>
           {cores.map((cor, index) => (
-            <TouchableOpacity key={index} activeOpacity={0.8} onPress={()=> setBackground(cor)}>
+            <TouchableOpacity key={index} activeOpacity={0.8} onPress={()=> {
+              setBackground(cor)
+              setSelecionado(index)}}>
               <View
                 style={{
                   backgroundColor: cor,
@@ -92,7 +96,9 @@ function AddCategoria({ navigation }) {
                   marginBottom: ScreenHeight*4,
                   marginHorizontal:2
                 }}
-              ></View>
+              >
+                {selecionado === index?<Icon name="check" size={35} color="white" />:<Text></Text> }
+              </View>
             </TouchableOpacity>
           ))}
         </View>
