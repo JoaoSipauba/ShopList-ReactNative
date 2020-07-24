@@ -1,11 +1,15 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from "@react-navigation/stack";
 import { Provider } from "react-redux";
 
 import HomeScreen from "./src/screens/home";
 import Lista from "./src/screens/lista";
 import AddCategoria from "./src/screens/addCategoria";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import store from "./src/store/index";
 
@@ -15,7 +19,11 @@ function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS}}>
+        <Stack.Navigator
+          screenOptions={{
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        >
           <Stack.Screen
             name="Home"
             component={HomeScreen}
@@ -35,6 +43,15 @@ function App() {
             component={Lista}
             options={{
               title: "Lista de Compras",
+              headerRight: () => (
+                <Icon
+                  name="trash-o"
+                  size={25}
+                  color="white"
+                  style={{paddingRight:8}}
+                  onPress={() => alert("This is a button!")}
+                />
+              ),
               headerStyle: {
                 backgroundColor: "#2196F3",
               },

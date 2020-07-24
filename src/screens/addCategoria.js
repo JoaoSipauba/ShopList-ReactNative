@@ -73,7 +73,7 @@ function AddCategoria({ navigation }) {
     <>
       <View
         style={{
-          paddingTop:"30%",
+          paddingTop:"25%",
           flex: 1,
           justifyContent: "flex-start",
           alignItems: "center",
@@ -112,6 +112,7 @@ function AddCategoria({ navigation }) {
             onChangeText={(e) => setInputSection(e)}
             value={inputSection}
             maxLength={20}
+            autoFocus={true}
           />
           <Button
             type="clear"
