@@ -95,7 +95,7 @@ function HomeScreen({ navigation }) {
               </View>
             </View>
           </Modal>
-          {categorias !== [] ? (
+          {categorias.length >=1 ? (
             categorias.map((categoria, index) => (
               <TouchableOpacity
                 key={index}
