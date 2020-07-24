@@ -36,7 +36,7 @@ function HomeScreen({ navigation }) {
 
   function deleteCategoria() {
     let array = categorias;
-    array.splice(categoriaIndex);
+    array.splice(categoriaIndex,1);
     setCategorias(array);
     AsyncStorage.setItem("Categorias", JSON.stringify(array)).then(() => {
       setModalVisible(false);
