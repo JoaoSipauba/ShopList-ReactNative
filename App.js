@@ -43,15 +43,6 @@ function App() {
             component={Lista}
             options={{
               title: "Lista de Compras",
-              headerRight: () => (
-                <Icon
-                  name="trash-o"
-                  size={25}
-                  color="white"
-                  style={{paddingRight:8}}
-                  onPress={() => alert("This is a button!")}
-                />
-              ),
               headerStyle: {
                 backgroundColor: "#2196F3",
               },
