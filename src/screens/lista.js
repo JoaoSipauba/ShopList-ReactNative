@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     padding: 20,
     fontWeight: "bold",
+    alignSelf: "center"
   },
   viewInput: {
     display: "flex",
