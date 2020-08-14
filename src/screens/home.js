@@ -36,7 +36,7 @@ function HomeScreen({ navigation }) {
 
   function deleteCategoria() {
     let array = categorias;
-    array.splice(categoriaIndex,1);
+    array.splice(categoriaIndex, 1);
     setCategorias(array);
     AsyncStorage.setItem("Categorias", JSON.stringify(array)).then(() => {
       setModalVisible(false);
@@ -95,7 +95,9 @@ function HomeScreen({ navigation }) {
               </View>
             </View>
           </Modal>
-          {categorias.length >0 ? (
+          {(categorias === null || categorias.length === 0) ? (
+            <Text style={styles.null}>Cadastre uma nova categoria</Text>
+          ) : (
             categorias.map((categoria, index) => (
               <TouchableOpacity
                 key={index}
@@ -114,8 +116,6 @@ function HomeScreen({ navigation }) {
                 />
               </TouchableOpacity>
             ))
-          ) : (
-            <Text style={styles.null}>Cadastre uma nova categoria</Text>
           )}
         </View>
       </ScrollView>

@@ -2,7 +2,7 @@
   "expo": {
     "name": "ShopList",
     "slug": "ShopList",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,13 +17,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.devsipauba.shoplist",
+      "buildNumber": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "android":{
-      "package": "com.devsipauba.shoplist"
+      "package": "com.devsipauba.shoplist",
+      "versionCode": 1
     }
   }
 }
