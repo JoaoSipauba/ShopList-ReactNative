@@ -3,25 +3,12 @@
 	ShopList 📋 - Em progresso ⚠️
 </h4>
 
-<!-- Index session-->
-<p align="center">
- <a href="#-sobre-o-projeto">Sobre</a> •
- <a href="#-funcionalidades">Funcionalidades</a> • 
- <a href="#-layout">Layout</a> • 
- <a href="#-como-executar-o-projeto">Executando</a> • 
- <a href="#-tecnologias">Tecnologias</a> • 
-</p>
-
-<!--About session-->
-
 ## Sobre o projeto
 
 Projeto desenvolvido com intuito de aprender sobre a tecnologia mobile do React,
 e suprir a necessidade da minha mãe de lembrar de coisas a serem compradas.
 
 ---
-
-<!--Functionalities session-->
 
 ## Funcionalidades
 
@@ -35,8 +22,6 @@ e suprir a necessidade da minha mãe de lembrar de coisas a serem compradas.
 - [x] Excluir itens marcados
 
 ---
-
-<!--Layout session-->
 
 ## Layout
 
@@ -54,8 +39,6 @@ e suprir a necessidade da minha mãe de lembrar de coisas a serem compradas.
 </p> -->
 
 ---
-
-<!--Running session-->
 
 ## Como executar o projeto
 
@@ -84,8 +67,6 @@ Feito isso, basta executar o procedimento de rodar o projeto, e usa-lo ;)
 
 ---
 
-<!--Tecnologies session-->
-
 ## Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
@@ -103,8 +84,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Markdown: **[EmojiCopy](https://www.emojicopy.com)**, **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
 - Badges: **[Shields.io](https://shields.io)**
 
-<!--License session-->
-
 ## Licença
 
 Este projeto está sob a licença [MIT](./LICENSE).
@@ -117,5 +96,4 @@ Este projeto está sob a licença [MIT](./LICENSE).
 
 ---
 
-<!--Bottom session-->
 <h4 align=center>Feito por João Sipaúba <a href="https://www.linkedin.com/in/jo%C3%A3o-sipa%C3%BAba-silva-pessoa-ba369a1a5/">Entre em contato :)</a></a></h4>
