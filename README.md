@@ -1,3 +1,8 @@
+<!--Banner session-->
+<h1 align="center">
+    <img alt="ShopList-Banner" title="ShopList" src=".github/banner.png"/>
+</h1>
+
 <!--Status session-->
 <h4 align="center"> 
 	ShopList 📋 - Em progresso ⚠️
@@ -31,12 +36,12 @@ e suprir a necessidade da minha mãe de lembrar de coisas a serem compradas.
 </a>
 </p>
 
-<!-- ### Mobile
+### Mobile
 
 <p align="center">
-  <img alt="Mobile preview" title="Mobile-preview"  src=".github/mobile-preview.png" width="800px">
+  <img alt="Mobile preview" title="Mobile-preview"  src=".github/mobile.png" width="800px">
 
-</p> -->
+</p>
 
 ---
 
@@ -93,7 +98,8 @@ Este projeto está sob a licença [MIT](./LICENSE).
 ## Considerações:
 
 - Protótipo (Figma): <a href="https://www.linkedin.com/in/marcus-vinicius-silva-costa-6098911a4/">Marcus Vinicius</a>
+- Imagens, icones: <a href="https://www.linkedin.com/in/thiago-furtado-silva/">Thiago Silva</a>
 
 ---
 
-<h4 align=center>Feito por João Sipaúba <a href="https://www.linkedin.com/in/jo%C3%A3o-sipa%C3%BAba-silva-pessoa-ba369a1a5/">Entre em contato :)</a></a></h4>
+<h4 align=center>Feito por <a href="https://www.linkedin.com/in/jo%C3%A3o-sipa%C3%BAba-silva-pessoa-ba369a1a5/">João Sipaúba </a></h4>
