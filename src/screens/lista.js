@@ -28,10 +28,11 @@ function Lista() {
   React.useEffect(() => {
     setItens(data.lista);
   }, [data]);
+
   async function addItem() {
     if (inputItem !== "") {
       var newItens = itens;
-      let newItem = { item: inputItem, checked: false };
+      let newItem = { item: inputItem, checked: false, quantidade: 1 };
       newItens.push(newItem);
       setItens(newItens);
       let categorias = [];
@@ -93,6 +94,7 @@ function Lista() {
               index={index}
               checked={item.checked}
               texto={`${item.item}`}
+              quantidade={item.quantidade}
               />
               ))
               ): <Text style={styles.null}>Sua lista está vazia...</Text>}
