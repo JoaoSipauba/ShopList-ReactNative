@@ -9,7 +9,6 @@ import { Provider } from "react-redux";
 import HomeScreen from "./src/screens/home";
 import Lista from "./src/screens/lista";
 import AddCategoria from "./src/screens/addCategoria";
-import Icon from "react-native-vector-icons/FontAwesome";
 
 import store from "./src/store/index";
 
@@ -28,7 +27,7 @@ function App() {
             name="Home"
             component={HomeScreen}
             options={{
-              title: "Shop List",
+              title: "ShopList",
               headerStyle: {
                 backgroundColor: "#2196F3",
               },
@@ -56,7 +55,7 @@ function App() {
             name="AddCategoria"
             component={AddCategoria}
             options={{
-              title: "Criar categoria",
+              title: "Criar lista",
               headerStyle: {
                 backgroundColor: "#2196F3",
               },

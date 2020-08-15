@@ -22,7 +22,7 @@ function AddCategoria({ navigation }) {
   const [selecionado, setSelecionado] = React.useState(2);
 
 
-  async function addSection(cor) {
+  async function addSection() {
     if (inputSection === "Excluir") {
       AsyncStorage.removeItem("Categorias").then(() => {
         setInputSection("");
@@ -103,7 +103,7 @@ function AddCategoria({ navigation }) {
           ))}
         </View>
 
-        <Text style={{alignSelf:"flex-start",marginLeft:ScreenWidth*3,fontSize: 27, color: "black", padding: "5%", fontWeight: "bold"}}>Nome da categoria:</Text>
+        <Text style={{alignSelf:"flex-start",marginLeft:ScreenWidth*3,fontSize: 27, color: "black", padding: "5%", fontWeight: "bold"}}>Nome da lista:</Text>
         <View style={styles.viewInput}>
           <TextInput
             style={styles.input}

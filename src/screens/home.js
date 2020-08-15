@@ -44,7 +44,7 @@ function HomeScreen({ navigation }) {
   }
   return (
     <View style={{ flex: 1 }}>
-      <Text style={styles.text}>Categorias</Text>
+      <Text style={styles.text}>Listas</Text>
       <ScrollView>
         <View
           style={{
@@ -78,7 +78,7 @@ function HomeScreen({ navigation }) {
                   }}
                 />
                 <Text style={styles.modalText}>
-                  Deseja excluir esta categoria?
+                  Deseja excluir esta lista?
                 </Text>
 
                 <View style={{ flexDirection: "row" }}>
