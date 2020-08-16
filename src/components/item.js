@@ -71,6 +71,14 @@ function Item(props) {
             fontSize: 17,
             fontWeight: "bold",
           }}
+          onPress={() => {
+            // dispatch({ type: "ADD_ITEM", data: props.item})
+            // console.warn(props.item);
+            props.navigation.navigate("Description", {
+              item: props.item,
+              index: props.index,
+            });
+          }}
         >
           {props.texto}
         </Text>

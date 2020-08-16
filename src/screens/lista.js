@@ -18,7 +18,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 let ScreenHeight = Dimensions.get("window").height / 100;
 let ScreenWidth = Dimensions.get("window").width / 100;
 
-function Lista() {
+function Lista({ navigation }) {
   const data = useSelector((state) => state.categoria);
 
   const [itens, setItens] = React.useState(data.lista);
@@ -32,7 +32,7 @@ function Lista() {
   async function addItem() {
     if (inputItem !== "") {
       var newItens = itens;
-      let newItem = { item: inputItem, checked: false, quantidade: 1 };
+      let newItem = { item: inputItem, checked: false, quantidade: 1, descrição:"" };
       newItens.push(newItem);
       setItens(newItens);
       let categorias = [];
@@ -90,14 +90,15 @@ function Lista() {
           {itens.length > 0?(
             itens.map((item, index) => (
               <Item
-              key={index}
-              index={index}
-              checked={item.checked}
-              texto={`${item.item}`}
-              quantidade={item.quantidade}
+                key={index}
+                index={index}
+                checked={item.checked}
+                texto={`${item.item}`}
+                quantidade={item.quantidade}
+                navigation={navigation}
+                item={item}
               />
-              ))
-              ): <Text style={styles.null}>Sua lista está vazia...</Text>}
+              ))): <Text style={styles.null}>Sua lista está vazia...</Text>}
         </ScrollView>
         <View
           style={{
