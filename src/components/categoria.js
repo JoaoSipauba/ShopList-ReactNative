@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     paddingTop: "2%",
+    paddingBottom: "7%"
   },
   text: {
     color: "#fff",
