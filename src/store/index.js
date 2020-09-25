@@ -1,23 +1,6 @@
 import { createStore } from "redux";
+import categoriaReducer  from './categoriaReducer';
 
-const INITIAL_STATE = {
-  categoria: {
-    categoria: "",
-    cor: "",
-  },
-};
-
-function categorias(state= INITIAL_STATE,action) {
-  switch (action.type) {
-    case "ADD_CATEGORIA":
-      return {
-        categoria: action.data,
-      };
-    default:
-      return state;
-  }
-}
-
-const store = createStore(categorias);
+const store = createStore(categoriaReducer);
 
 export default store;
